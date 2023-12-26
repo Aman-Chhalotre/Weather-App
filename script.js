@@ -15,7 +15,7 @@ async function checkWeather(city){
         return data
     })
     .then((data) =>{
-        console.log(data)
+        
         if(city.toUpperCase() === data.name.toUpperCase()){
 
                 
@@ -60,7 +60,6 @@ async function checkWeather(city){
     })
     .catch((error) =>{
         console.log(error)
-        
         document.querySelector('#error').style.display = "block"
         document.querySelector('#temp').style.visibility = "hidden"
         document.querySelector('#info').style.visibility = "hidden"
