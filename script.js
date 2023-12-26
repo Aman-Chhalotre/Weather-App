@@ -15,15 +15,15 @@ async function checkWeather(city){
         return data
     })
     .then((data) =>{
-        
+        console.log(data)
         if(city.toUpperCase() === data.name.toUpperCase()){
 
-                console.log(true)
+                
                 document.querySelector('#error').style.display = "none"
                 document.querySelector('#temp').style.visibility = "visible"
                 document.querySelector('#info').style.visibility = "visible"
 
-                let temperature = Math.trunc(data.main.temp)
+                let temperature = data.main.temp
 
                 document.querySelector("#temperature").innerText = `${temperature}°C`
                 document.querySelector('#city').innerText = `${data.name}`
@@ -60,10 +60,10 @@ async function checkWeather(city){
     })
     .catch((error) =>{
         console.log(error)
-        console.log(false)
-            document.querySelector('#error').style.display = "block"
-            document.querySelector('#temp').style.visibility = "hidden"
-            document.querySelector('#info').style.visibility = "hidden"
+        
+        document.querySelector('#error').style.display = "block"
+        document.querySelector('#temp').style.visibility = "hidden"
+        document.querySelector('#info').style.visibility = "hidden"
     })
 
     
